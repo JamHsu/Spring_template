@@ -18,8 +18,8 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
         auth.inMemoryAuthentication()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("jam").password(passwordEncoder().encode("123")).roles("USER");
+            .passwordEncoder(new BCryptPasswordEncoder())
+            .withUser("jam").password(passwordEncoder().encode("123")).roles("USER");
     }
 
     @Override
@@ -32,8 +32,8 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and().httpBasic();
+            .anyRequest().authenticated()
+            .and().httpBasic();
     }
 
     @Bean

@@ -1,7 +1,6 @@
 package com.jam.template.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +25,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .inMemory()
                 .withClient("jam")
                 .authorizedGrantTypes("password","refresh_token")
-                .scopes("read", "write")
+                .scopes("read", "write", "trust")
                 .resourceIds("resource")
                 .secret(passwordEncoder.encode("secret"));
     }
